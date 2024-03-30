@@ -34,10 +34,3 @@ BoxStyles:
     Line: "─"
     CornerBottomLeft: "╰"
     CornerBottomRight: "╯"
-  PixelLines:
-    CornerTopLeft: "▞"
-    CornerTopRight: "▚"
-    Side: "▝"
-    Line: "▖"
-    CornerBottomLeft: "└"
-    CornerBottomRight: "┘"
