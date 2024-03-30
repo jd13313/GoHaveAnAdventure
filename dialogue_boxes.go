@@ -29,7 +29,7 @@ type DialogueBox struct {
 	Color string
 }
 
-func newDialogueBox(w int, s string, t string, c string) DialogueBox {
+func getConfig() Config {
 	// Handle config file
 	data, err := os.ReadFile("configs/config.yaml")
 
@@ -44,6 +44,12 @@ func newDialogueBox(w int, s string, t string, c string) DialogueBox {
 	if err != nil {
 		fmt.Printf("error: %v", err)
 	}
+
+	return config
+}
+
+func newDialogueBox(w int, s string, t string, c string) DialogueBox {
+	config := getConfig()
 
 	// Define color options
 	colorOptions := map[string]string{
