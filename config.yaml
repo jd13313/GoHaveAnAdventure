@@ -1,0 +1,22 @@
+BoxStyles:
+  BoldLines:
+    CornerTopLeft: "┌"
+    CornerTopRight: "┐"
+    Side: "│"
+    Line: "━"
+    CornerBottomLeft: "└"
+    CornerBottomRight: "┘"
+  DoubleLines:
+    CornerTopLeft: "╔"
+    CornerTopRight: "╗"
+    Side: "║"
+    Line: "═"
+    CornerBottomLeft: "╚"
+    CornerBottomRight: "╝"
+  BasicLines:
+    CornerTopLeft: "+"
+    CornerTopRight: "+"
+    Side: "|"
+    Line: "-"
+    CornerBottomLeft: "+"
+    CornerBottomRight: "+"
