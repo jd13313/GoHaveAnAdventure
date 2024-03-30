@@ -1,11 +1,11 @@
 BoxStyles:
   BoldLines:
-    CornerTopLeft: "┌"
-    CornerTopRight: "┐"
-    Side: "│"
+    CornerTopLeft: "┏"
+    CornerTopRight: "┓"
+    Side: "┃"
     Line: "━"
-    CornerBottomLeft: "└"
-    CornerBottomRight: "┘"
+    CornerBottomLeft: "┗"
+    CornerBottomRight: "┛"
   DoubleLines:
     CornerTopLeft: "╔"
     CornerTopRight: "╗"
@@ -20,3 +20,24 @@ BoxStyles:
     Line: "-"
     CornerBottomLeft: "+"
     CornerBottomRight: "+"
+  ThinLines:
+    CornerTopLeft: "┌"
+    CornerTopRight: "┐"
+    Side: "│"
+    Line: "─"
+    CornerBottomLeft: "└"
+    CornerBottomRight: "┘"
+  CurvyLines:
+    CornerTopLeft: "╭"
+    CornerTopRight: "╮"
+    Side: "│"
+    Line: "─"
+    CornerBottomLeft: "╰"
+    CornerBottomRight: "╯"
+  PixelLines:
+    CornerTopLeft: "▞"
+    CornerTopRight: "▚"
+    Side: "▝"
+    Line: "▖"
+    CornerBottomLeft: "└"
+    CornerBottomRight: "┘"
