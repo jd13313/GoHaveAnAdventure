@@ -31,7 +31,7 @@ type DialogueBox struct {
 
 func newDialogueBox(w int, s string, t string, c string) DialogueBox {
 	// Handle config file
-	data, err := os.ReadFile("config.yaml")
+	data, err := os.ReadFile("configs/config.yaml")
 
 	if err != nil {
 		fmt.Printf("error: %v", err)
