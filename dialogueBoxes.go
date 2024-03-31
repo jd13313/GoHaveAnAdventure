@@ -89,7 +89,7 @@ func (d DialogueBox) Print() {
 		// Print left border and chunk
 		fmt.Print(d.Style.Side, " ", string(chunk))
 
-		// Print empty spaces to fill the remaining width
+		// Fill the remaining width
 		if rw > 0 {
 			for j := 0; j <= rw-4; j++ {
 				fmt.Print(" ")
