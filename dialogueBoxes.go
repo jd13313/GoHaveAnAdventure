@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"gopkg.in/yaml.v3"
 )
@@ -75,7 +76,7 @@ func newDialogueBox(w int, s string, t string, c string) DialogueBox {
 }
 
 func (d DialogueBox) Print() {
-	chunks := splitStringIntoChunks(d.Text, d.Width-4)
+	lines := splitStringIntoLines(d.Text, d.Width)
 
 	// Set box color
 	fmt.Print(d.Color)
@@ -83,21 +84,19 @@ func (d DialogueBox) Print() {
 	// Print top border
 	drawHorizontalBorder(d.Width, "top", d.Style)
 
-	for _, chunk := range chunks {
-		rw := d.Width - len(chunk)
+	for _, l := range lines {
+		l = strings.TrimSpace(l)
+		remainingWidth := d.Width - len([]rune(l)) - 4
+		whitespaceStart := " "
+		var whitespaceEnd string
 
-		// Print left border and chunk
-		fmt.Print(d.Style.Side, " ", string(chunk))
-
-		// Fill the remaining width
-		if rw > 0 {
-			for j := 0; j <= rw-4; j++ {
-				fmt.Print(" ")
-			}
+		if remainingWidth < 0 {
+			remainingWidth = 0
 		}
 
-		// Print right border
-		fmt.Print(" ", d.Style.Side, "\n")
+		whitespaceEnd = strings.Repeat(" ", remainingWidth+2)
+
+		fmt.Println(d.Style.Side + whitespaceStart + l + whitespaceEnd + d.Style.Side)
 	}
 
 	drawHorizontalBorder(d.Width, "bottom", d.Style)
@@ -127,19 +126,26 @@ func drawHorizontalBorder(w int, d string, s LineStyle) {
 	}
 }
 
-func splitStringIntoChunks(s string, cs int) []string {
-	var chunks []string
-	runes := []rune(s)
+func splitStringIntoLines(s string, w int) []string {
+	words := strings.Fields(s)
+	var lines []string
+	ln := 0
 
-	for i := 0; i < len(runes); i += cs {
-		end := i + cs
-
-		if end > len(runes) {
-			end = len(runes)
+	for _, word := range words {
+		if ln >= len(lines) {
+			lines = append(lines, "")
 		}
 
-		chunks = append(chunks, string(runes[i:end]))
+		lineLength := len([]rune(lines[ln]))
+		wordLength := len([]rune(word))
+
+		if lineLength+wordLength <= w-4 {
+			lines[ln] += word + " "
+		} else {
+			ln++
+			lines = append(lines, word+" ")
+		}
 	}
 
-	return chunks
+	return lines
 }
