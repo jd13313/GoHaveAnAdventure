@@ -18,7 +18,8 @@ Not much to this yet. I'm very new to the language and just laying down some bas
 #### 4/1/24 - Got dialogue boxes to linebreak on words rather than in the middle of them
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/ae87fc3b-45d2-4893-9afe-79187312fd2d)
 
-#### 4/3/24 - Added multi-line and manual linebreaks to dialogue boxes
-![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/3a02a79c-aba5-4acc-93b7-d45a6d87c5ef)
+#### 4/3/24 - Added paragraph, line breaks, and dividers to Dialogue Boxes
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/24d43b3a-7a27-4a7e-bdab-1abd0ad38bbc)
+
 
 
