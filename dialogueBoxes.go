@@ -127,14 +127,36 @@ func drawHorizontalBorder(w int, d string, s LineStyle) {
 }
 
 func splitStringIntoLines(s string, w int) []string {
-	words := strings.Fields(s)
 	var lines []string
+	words := strings.Fields(s)
 	ln := 0
 
 	for _, word := range words {
 		if ln >= len(lines) {
 			lines = append(lines, "")
 		}
+
+		// Handle New Paragaraph <np> and Line Breaks <lb>
+		lb := 0
+
+		if word == "<np>" {
+			lb = 2
+		}
+
+		if word == "<lb>" {
+			lb = 1
+		}
+
+		if lb > 0 {
+			for i := 0; i < lb; i++ {
+				ln++
+				lines = append(lines, " ")
+			}
+
+			continue
+		}
+
+		// Handle normal words
 
 		lineLength := len([]rune(lines[ln]))
 		wordLength := len([]rune(word))
