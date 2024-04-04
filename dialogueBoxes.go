@@ -12,6 +12,8 @@ type LineStyle struct {
 	CornerTopLeft     string `yaml:"CornerTopLeft"`
 	CornerTopRight    string `yaml:"CornerTopRight"`
 	Side              string `yaml:"Side"`
+	DividerLeft       string `yaml:"DividerLeft"`
+	DividerRight      string `yaml:"DividerRight"`
 	Line              string `yaml:"Line"`
 	CornerBottomLeft  string `yaml:"CornerBottomLeft"`
 	CornerBottomRight string `yaml:"CornerBottomRight"`
@@ -31,7 +33,6 @@ type DialogueBox struct {
 }
 
 func getConfig() Config {
-	// Handle config file
 	data, err := os.ReadFile("configs/config.yaml")
 
 	if err != nil {
@@ -64,7 +65,7 @@ func newDialogueBox(w int, s string, t string, c string) DialogueBox {
 }
 
 func (d DialogueBox) Print() {
-	lines := splitStringIntoLines(d.Text, d.Width)
+	lines := splitStringIntoLines(d.Text, d.Width, d.Style)
 
 	// Set box color
 	fmt.Print(d.Color)
@@ -84,7 +85,11 @@ func (d DialogueBox) Print() {
 
 		whitespaceEnd = strings.Repeat(" ", remainingWidth+2)
 
-		fmt.Println(d.Style.Side + whitespaceStart + l + whitespaceEnd + d.Style.Side)
+		if l == "<d>" {
+			fmt.Println(d.Style.DividerLeft + strings.Repeat(d.Style.Line, d.Width-1) + d.Style.DividerRight)
+		} else {
+			fmt.Println(d.Style.Side + whitespaceStart + l + whitespaceEnd + d.Style.Side)
+		}
 	}
 
 	drawHorizontalBorder(d.Width, "bottom", d.Style)
@@ -94,10 +99,10 @@ func (d DialogueBox) Print() {
 }
 
 func drawHorizontalBorder(w int, d string, s LineStyle) {
-	// Print left corner
+	// Print left character
 	if d == "top" {
 		fmt.Print(s.CornerTopLeft)
-	} else {
+	} else if d == "bottom" {
 		fmt.Print(s.CornerBottomLeft)
 	}
 
@@ -106,15 +111,15 @@ func drawHorizontalBorder(w int, d string, s LineStyle) {
 		fmt.Print(s.Line)
 	}
 
-	// Print right corner
+	// Print right character
 	if d == "top" {
 		fmt.Print(s.CornerTopRight, "\n")
-	} else {
+	} else if d == "bottom" {
 		fmt.Print(s.CornerBottomRight, "\n")
 	}
 }
 
-func splitStringIntoLines(s string, w int) []string {
+func splitStringIntoLines(s string, w int, ls LineStyle) []string {
 	var lines []string
 	words := strings.Fields(s)
 	ln := 0
@@ -124,28 +129,23 @@ func splitStringIntoLines(s string, w int) []string {
 			lines = append(lines, "")
 		}
 
-		// Handle New Paragaraph <np> and Line Breaks <lb>
-		lb := 0
-
-		if word == "<np>" {
-			lb = 2
-		}
-
-		if word == "<lb>" {
-			lb = 1
-		}
-
-		if lb > 0 {
-			for i := 0; i < lb; i++ {
-				ln++
-				lines = append(lines, " ")
-			}
-
+		// Handle special, reserved words such as <np> and <lb> for New Paragraph and Line Break
+		switch word {
+		case "<p>": // New Paragraph
+			ln = ln + 2
+			lines = append(lines, " ")
+			continue
+		case "<l>": // New Line
+			ln++
+			lines = append(lines, " ")
+			continue
+		case "<d>": // Divider
+			ln = ln + 2
+			lines = append(lines, "<d>")
 			continue
 		}
 
 		// Handle normal words
-
 		lineLength := len([]rune(lines[ln]))
 		wordLength := len([]rune(word))
 
