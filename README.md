@@ -19,7 +19,8 @@ Not much to this yet. I'm very new to the language and just laying down some bas
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/ae87fc3b-45d2-4893-9afe-79187312fd2d)
 
 #### 4/3/24 - Added paragraph, line breaks, and dividers to Dialogue Boxes
-![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/24d43b3a-7a27-4a7e-bdab-1abd0ad38bbc)
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/fec6b813-dce1-4fcd-8fda-c9a6aa138aaa)
+
 
 
 
