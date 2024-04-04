@@ -52,24 +52,12 @@ func getConfig() Config {
 func newDialogueBox(w int, s string, t string, c string) DialogueBox {
 	config := getConfig()
 
-	// Define color options
-	colorOptions := map[string]string{
-		"Red":    "\033[91m",
-		"Green":  "\033[92m",
-		"Yellow": "\033[93m",
-		"Blue":   "\033[94m",
-		"Purple": "\033[95m",
-		"Cyan":   "\033[96m",
-		"White":  "\033[97m",
-		"Reset":  "\033[0m",
-	}
-
 	// Create dialogue box
 	dialogueBox := DialogueBox{
 		Width: w,
 		Style: config.BoxStyles[s],
 		Text:  t,
-		Color: colorOptions[c],
+		Color: c,
 	}
 
 	return dialogueBox
