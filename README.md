@@ -3,7 +3,8 @@
 Not much to this yet. I'm very new to the language and just laying down some basic groundwork for eventually actually turning this into the game. 
 
 ### Todo
-* Figure out avoiding linebreaks mid-word in dialogue boxes
+*  ~~Figure out avoiding linebreaks mid-word in dialogue boxes~~ ✅
+*  Add support for multiple paragraphs appearing in a single dialogue box
 * Everything else :)
 
 ### Dev Timeline Screenshots
@@ -12,5 +13,7 @@ Not much to this yet. I'm very new to the language and just laying down some bas
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/83dcb6b7-6f35-4a7d-aa8d-f7bf9574b72c)
 #### 3/30/24 - Restructured the code a bit and added different line styles and colors to dialogue boxes
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/8b48eb9d-88f3-4cea-9f2d-946cb6d79ece)
+#### 4/1/24 - Got dialogue boxes to linebreak on words rather than in the middle of them
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/ae87fc3b-45d2-4893-9afe-79187312fd2d)
 
 
