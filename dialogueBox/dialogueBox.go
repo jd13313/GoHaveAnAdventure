@@ -1,4 +1,4 @@
-package main
+package dialogueBox
 
 import (
 	"fmt"
@@ -50,7 +50,11 @@ func getConfig() Config {
 	return config
 }
 
-func newDialogueBox(w int, s string, t string, c string) DialogueBox {
+func dialogueBox() {
+
+}
+
+func createDialogueBox(w int, s string, t string, c string) DialogueBox {
 	config := getConfig()
 
 	// Create dialogue box
@@ -130,6 +134,7 @@ func splitStringIntoLines(s string, w int, ls LineStyle) []string {
 		}
 
 		// Handle special, reserved words such as <np> and <lb> for New Paragraph and Line Break
+		// @TODO - See if this can be moved to Print() or pass along these special words to it like <d> is handled.
 		switch word {
 		case "<p>": // New Paragraph
 			ln = ln + 2

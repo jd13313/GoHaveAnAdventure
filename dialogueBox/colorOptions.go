@@ -1,4 +1,4 @@
-package main
+package dialogueBox
 
 const (
 	ColorRed    = "\033[91m"
