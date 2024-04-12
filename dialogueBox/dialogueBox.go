@@ -2,65 +2,23 @@ package dialogueBox
 
 import (
 	"fmt"
-	"os"
 	"strings"
-
-	"gopkg.in/yaml.v3"
 )
-
-type LineStyle struct {
-	CornerTopLeft     string `yaml:"CornerTopLeft"`
-	CornerTopRight    string `yaml:"CornerTopRight"`
-	Side              string `yaml:"Side"`
-	DividerLeft       string `yaml:"DividerLeft"`
-	DividerRight      string `yaml:"DividerRight"`
-	Line              string `yaml:"Line"`
-	CornerBottomLeft  string `yaml:"CornerBottomLeft"`
-	CornerBottomRight string `yaml:"CornerBottomRight"`
-}
-
-type BoxStyles map[string]LineStyle
-
-type Config struct {
-	BoxStyles BoxStyles `yaml:"BoxStyles"`
-}
 
 type DialogueBox struct {
 	Width int
-	Style LineStyle
+	Style DialogueStyle
 	Text  string
 	Color string
 }
 
-func getConfig() Config {
-	data, err := os.ReadFile("configs/config.yaml")
-
-	if err != nil {
-		fmt.Printf("error: %v", err)
-	}
-
-	var config Config
-
-	err = yaml.Unmarshal(data, &config)
-
-	if err != nil {
-		fmt.Printf("error: %v", err)
-	}
-
-	return config
-}
-
-func dialogueBox() {
-
-}
-
-func createDialogueBox(w int, s string, t string, c string) DialogueBox {
-	config := getConfig()
+func CreateDialogueBox(s DialogueStyle, t string, c string) DialogueBox {
+	w := 100 // This could be configured, but let's keep it hardcoded for now.
 
 	// Create dialogue box
 	dialogueBox := DialogueBox{
 		Width: w,
-		Style: config.BoxStyles[s],
+		Style: s,
 		Text:  t,
 		Color: c,
 	}
@@ -69,7 +27,7 @@ func createDialogueBox(w int, s string, t string, c string) DialogueBox {
 }
 
 func (d DialogueBox) Print() {
-	lines := splitStringIntoLines(d.Text, d.Width, d.Style)
+	lines := splitStringIntoLines(d.Text, d.Width)
 
 	// Set box color
 	fmt.Print(d.Color)
@@ -102,7 +60,7 @@ func (d DialogueBox) Print() {
 	fmt.Print("\033[0m")
 }
 
-func drawHorizontalBorder(w int, d string, s LineStyle) {
+func drawHorizontalBorder(w int, d string, s DialogueStyle) {
 	// Print left character
 	if d == "top" {
 		fmt.Print(s.CornerTopLeft)
@@ -123,7 +81,7 @@ func drawHorizontalBorder(w int, d string, s LineStyle) {
 	}
 }
 
-func splitStringIntoLines(s string, w int, ls LineStyle) []string {
+func splitStringIntoLines(s string, w int) []string {
 	var lines []string
 	words := strings.Fields(s)
 	ln := 0
