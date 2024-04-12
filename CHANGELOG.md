@@ -17,3 +17,6 @@
 #### 4/3/24 - Added paragraph, line breaks, and dividers to Dialogue Boxes
 
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/fec6b813-dce1-4fcd-8fda-c9a6aa138aaa)
+
+#### 4/12/24 - Added ability to draw art and adjust color palettes
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/0a5e66c7-4138-4f22-ad62-a5ff413d0c80)
