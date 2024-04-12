@@ -11,7 +11,7 @@ type DialogueStyle struct {
 	CornerBottomRight string
 }
 
-var DoubleLines = DialogueStyle{
+var StyleDouble = DialogueStyle{
 	CornerTopLeft:     "╔",
 	CornerTopRight:    "╗",
 	Side:              "║",
@@ -22,7 +22,7 @@ var DoubleLines = DialogueStyle{
 	CornerBottomRight: "╝",
 }
 
-var BasicLines = DialogueStyle{
+var StyleBasic = DialogueStyle{
 	CornerTopLeft:     "+",
 	CornerTopRight:    "+",
 	Side:              "|",
@@ -33,7 +33,7 @@ var BasicLines = DialogueStyle{
 	CornerBottomRight: "+",
 }
 
-var ThinLines = DialogueStyle{
+var StyleThin = DialogueStyle{
 	CornerTopLeft:     "┌",
 	CornerTopRight:    "┐",
 	Side:              "│",
@@ -44,7 +44,7 @@ var ThinLines = DialogueStyle{
 	CornerBottomRight: "┘",
 }
 
-var CurvyLines = DialogueStyle{
+var StyleCurved = DialogueStyle{
 	CornerTopLeft:     "╭",
 	CornerTopRight:    "╮",
 	Side:              "│",
