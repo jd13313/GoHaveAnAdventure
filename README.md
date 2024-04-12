@@ -12,6 +12,8 @@ Not much to this yet. I'm very new to the language and just laying down some bas
 
 #### Dialogue Box format codes
 
+Note: These codes _must_ be wrapped with empty spaces to work correctly.
+
 | Code  | Description    |
 | ----- | -------------- |
 | \<p\> | New paragraph  |
