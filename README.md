@@ -12,11 +12,11 @@ Not much to this yet. I'm very new to the language and just laying down some bas
 
 #### Dialogue Box format codes
 
-| Code | Description    |
-| ---- | -------------- |
-| <p>  | New paragraph  |
-| <l>  | New line       |
-| <d>  | Create divider |
+| Code  | Description    |
+| ----- | -------------- |
+| \<p\> | New paragraph  |
+| \<l\> | New line       |
+| \<d\> | Create divider |
 
 ### Dev Timeline Screenshots
 
