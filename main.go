@@ -10,4 +10,5 @@ func main() {
 	dialogueBox.CreateDialogueBox(dialogueBox.StyleCurved, dividedText, dialogueBox.ColorCyan).Print()
 	dialogueBox.CreateDialogueBox(dialogueBox.StyleDouble, dividedText, dialogueBox.ColorBlue).Print()
 	dialogueBox.CreateDialogueBox(dialogueBox.StyleThin, dividedText, dialogueBox.ColorPurple).Print()
+	dialogueBox.CreateDialogueBox(dialogueBox.StyleCurved, "Alert !!!! <d> HP: 2 <d> Your health is dangerously low! Consider using a potion or eating something.", dialogueBox.ColorGreen).Print()
 }
