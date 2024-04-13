@@ -31,7 +31,7 @@ func main() {
                         █▓▓▓▓▓▓▓▓▓▓▓█                       
                          ███████████                        
 
-	`, painter.PaletteGreens)
+	`, painter.GoldenToad)
 
 	painter.Draw(`
 
@@ -87,5 +87,5 @@ func main() {
            ░░░░░░░░░█▓█░░█░░░░░░
                     █ █
                    ▄█ █▄
-  `, painter.PaletteGreens)
+  `, painter.GoldenToad)
 }
