@@ -2,6 +2,7 @@ package dialogueBox
 
 import (
 	"fmt"
+	"main/painter"
 	"strings"
 )
 
@@ -12,7 +13,7 @@ type DialogueBox struct {
 	Color string
 }
 
-func CreateDialogueBox(s DialogueStyle, t string, c string) DialogueBox {
+func CreateDialogueBox(s DialogueStyle, t string, c painter.Color) DialogueBox {
 	w := 100 // This could be configured, but let's keep it hardcoded for now.
 
 	// Create dialogue box
@@ -20,7 +21,7 @@ func CreateDialogueBox(s DialogueStyle, t string, c string) DialogueBox {
 		Width: w,
 		Style: s,
 		Text:  t,
-		Color: c,
+		Color: c.GetANSI(),
 	}
 
 	return dialogueBox
