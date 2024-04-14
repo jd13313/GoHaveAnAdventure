@@ -1,22 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"main/painter"
-	"main/ui"
 )
 
 func main() {
-	dividedText := "This is a test of the emergency broadcast system. This is only a test. <d> If this were a real emergency, you would be instructed where to go and what to do. <p> This is only a test. <l> But like..what if?"
-	colorRed := painter.CreateColor(255, 0, 0)
-	colorGreen := painter.CreateColor(0, 255, 0)
-	colorBlue := painter.CreateColor(0, 0, 255)
-	colorPurple := painter.CreateColor(255, 0, 255)
-
-	ui.CreateDialogueBox(ui.StyleBasic, dividedText, colorRed).Print()
-	ui.CreateDialogueBox(ui.StyleCurved, dividedText, colorBlue).Print()
-	ui.CreateDialogueBox(ui.StyleDouble, dividedText, colorGreen).Print()
-	ui.CreateDialogueBox(ui.StyleThin, dividedText, colorPurple).Print()
-	ui.CreateDialogueBox(ui.StyleCurved, "Alert !!!! <d> HP: 2 <d> Your health is dangerously low! Consider using a potion or eating something.", colorGreen).Print()
 
 	painter.Draw(`                     
                          ███████████                        
@@ -31,7 +20,7 @@ func main() {
                         █▓▓▓▓▓▓▓▓▓▓▓█                       
                          ███████████                        
 
-	`, painter.GoldenToad)
+	`, painter.PaletteOcean)
 
 	painter.Draw(`
 
@@ -65,23 +54,38 @@ func main() {
            ██▓▓▓▓▓▓▓▓▓▓▓▓██
           ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
             ██████████████
-    `, painter.PaletteGreens)
+    `, painter.PaletteForest)
 
 	painter.Draw(`
-  ░░░                                     ░░░░░░░
-  ░░░░░░░                             ░░░░░░░░░░
-  ░░░░░░░░░     ▓                 ░░░░░░░░░░░░░░
-  ░░░░░░░░░░░   ▓              ░░░░░░░░░░░░░░░
-  ░░░░░░░░░░░░░░▓           ░░░░░░░░░░░░░░░░
-   ░░░░░░░░░░░░░▓░  ▓ ▓   ░░░░░░░░░░░░░░░░
-    ░░░░░░░░░░░░▓░░ ███ ░░░░░░░░░░░░░░░░░
-    ░░░░░░░░░░░░░█░░▀█▀░░░░░░░░░░░░░░░░░░
-     ░░░░░░░░░░░░░█▀▓█▓█░░░░░░░░░░░░░░░░
-       ░░░░░░░░░░░░░▓▓▓░█░░░░░░░░░░░░░
-           ░░░░░░░░░█▓█░░█░░░░░░
-                    █ █
-                   ▄█ █▄
-  `, painter.GoldenToad)
+         ▓   ▓ ▓
+         ▓   ███
+          █  ▀█▀
+          █▀▓█▓█
+            ▓▓▓ █
+            █▓█  █
+            █ █
+           ▄█ █▄
+  `, painter.PaletteSteel)
+	fmt.Println("")
 
-	painter.GoldenToad.Info()
+	fmt.Println("Golden 1:")
+	painter.PaletteGolden1.Info()
+
+	fmt.Println("Golden 2:")
+	painter.PaletteGolden2.Info()
+
+	fmt.Println("Forest:")
+	painter.PaletteForest.Info()
+
+	fmt.Println("Sunset:")
+	painter.PaletteSunset.Info()
+
+	fmt.Println("Ocean:")
+	painter.PaletteOcean.Info()
+
+	fmt.Println("Greens:")
+	painter.PaletteGreens.Info()
+
+	fmt.Println("Steel:")
+	painter.PaletteSteel.Info()
 }

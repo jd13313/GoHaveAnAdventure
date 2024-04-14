@@ -21,12 +21,11 @@ func CreatePalette(p Color, s Color, t Color, q Color) Palette {
 }
 
 func (p Palette) Info() {
-	fmt.Println("Palette Info:")
-
 	Draw(`
-███ [Primary]
-▓▓▓ [Secondary] 		
-▒▒▒ [Ternary]
-░░░ [Quaternary]
+	███ [Primary]
+	▓▓▓ [Secondary] 		
+	▒▒▒ [Ternary]
+	░░░ [Quaternary]
 	`, p)
+	fmt.Println("")
 }
