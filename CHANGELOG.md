@@ -22,3 +22,4 @@
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/0a5e66c7-4138-4f22-ad62-a5ff413d0c80)
 
 #### 4/13/24 - Added more color palettes, reorganize files
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/faf56b5d-0690-44e3-b87d-5fe0f8047ada)
