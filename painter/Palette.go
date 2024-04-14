@@ -1,5 +1,7 @@
 package painter
 
+import "fmt"
+
 type Palette struct {
 	primaryColor    string
 	secondaryColor  string
@@ -16,4 +18,15 @@ func CreatePalette(p Color, s Color, t Color, q Color) Palette {
 	}
 
 	return palette
+}
+
+func (p Palette) Info() {
+	fmt.Println("Palette Info:")
+
+	Draw(`
+███ [Primary]
+▓▓▓ [Secondary] 		
+▒▒▒ [Ternary]
+░░░ [Quaternary]
+	`, p)
 }

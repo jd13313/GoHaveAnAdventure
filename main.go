@@ -1,8 +1,8 @@
 package main
 
 import (
-	"main/dialogueBox"
 	"main/painter"
+	"main/ui"
 )
 
 func main() {
@@ -12,11 +12,11 @@ func main() {
 	colorBlue := painter.CreateColor(0, 0, 255)
 	colorPurple := painter.CreateColor(255, 0, 255)
 
-	dialogueBox.CreateDialogueBox(dialogueBox.StyleBasic, dividedText, colorRed).Print()
-	dialogueBox.CreateDialogueBox(dialogueBox.StyleCurved, dividedText, colorBlue).Print()
-	dialogueBox.CreateDialogueBox(dialogueBox.StyleDouble, dividedText, colorGreen).Print()
-	dialogueBox.CreateDialogueBox(dialogueBox.StyleThin, dividedText, colorPurple).Print()
-	dialogueBox.CreateDialogueBox(dialogueBox.StyleCurved, "Alert !!!! <d> HP: 2 <d> Your health is dangerously low! Consider using a potion or eating something.", colorGreen).Print()
+	ui.CreateDialogueBox(ui.StyleBasic, dividedText, colorRed).Print()
+	ui.CreateDialogueBox(ui.StyleCurved, dividedText, colorBlue).Print()
+	ui.CreateDialogueBox(ui.StyleDouble, dividedText, colorGreen).Print()
+	ui.CreateDialogueBox(ui.StyleThin, dividedText, colorPurple).Print()
+	ui.CreateDialogueBox(ui.StyleCurved, "Alert !!!! <d> HP: 2 <d> Your health is dangerously low! Consider using a potion or eating something.", colorGreen).Print()
 
 	painter.Draw(`                     
                          ███████████                        
@@ -68,12 +68,6 @@ func main() {
     `, painter.PaletteGreens)
 
 	painter.Draw(`
-        Primary: █
-        Secondary: ▓
-        Ternary: ▒
-    `, painter.PaletteGreens)
-
-	painter.Draw(`
   ░░░                                     ░░░░░░░
   ░░░░░░░                             ░░░░░░░░░░
   ░░░░░░░░░     ▓                 ░░░░░░░░░░░░░░
@@ -88,4 +82,6 @@ func main() {
                     █ █
                    ▄█ █▄
   `, painter.GoldenToad)
+
+	painter.GoldenToad.Info()
 }

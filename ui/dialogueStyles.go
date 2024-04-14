@@ -1,4 +1,4 @@
-package dialogueBox
+package ui
 
 type DialogueStyle struct {
 	CornerTopLeft     string
