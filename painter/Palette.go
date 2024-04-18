@@ -29,3 +29,19 @@ func (p Palette) Info() {
 	`, p)
 	fmt.Println("")
 }
+
+func (p Palette) GetPrimary() string {
+	return p.primaryColor
+}
+
+func (p Palette) GetSecondary() string {
+	return p.secondaryColor
+}
+
+func (p Palette) GetTernary() string {
+	return p.ternaryColor
+}
+
+func (p Palette) GetQuaternary() string {
+	return p.quaternaryColor
+}

@@ -3,89 +3,57 @@ package main
 import (
 	"fmt"
 	"main/painter"
+	"main/ui"
+
+	"main/utility"
 )
 
 func main() {
+	// rand.Seed(time.Now().UnixNano())
 
-	painter.Draw(`                     
-                         ███████████                        
-                        █▓▓▓▓▓▓▓▓▓▓▓█                       
-                       █▓▓▒▓▓▓▓▓▓▓▒▓▓█                      
-                      █▓▓▒▒▒▓▓▓▓▓▒▒▒▓▓█                     
-                      █▓▓▓▒▓▓▓▓▓▓▓▒▓▓▓█                     
-                      █▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█                     
-                      █▓▒▓▓▓▓▓▓▓▓▓▓▓▒▓█                     
-                      █▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓█                     
-                       █▓▓▒▒▒▒▒▒▒▒▒▓▓█                      
-                        █▓▓▓▓▓▓▓▓▓▓▓█                       
-                         ███████████                        
+	palette := painter.PaletteWhites
 
-	`, painter.PaletteOcean)
+	hokeyName := utility.RandomResponse([]string{
+		"stranger",
+		"pal",
+		"buddy",
+		"friend",
+		"partner",
+	})
 
-	painter.Draw(`
+	ui.CreateDialogueBox(
+		ui.StyleCurved,
+		`
+      You come upon an old man. He turns to you and speaks:
+      <d> Well hello there! Haven't seen you around these parts before.
+      <p> What's your name, `+hokeyName+`?
+    `,
+		palette.GetPrimary(),
+	).Print()
 
-    ███████  ████████████
-    ██▒▒▒▒▒███▒▒▒▒▒▒▒▒▒▒▒███
-  ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
-████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
-██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
-██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████
-█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
-█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
-█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
-██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
-██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
- █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
- █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
- ██▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒█
-  ███▒▒▒▒▒▒▒▒▒▓▓▓▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒███
-    ███▒▒▒▒▒▒█▓▓▓▓▓▓▓█▒▒▒▒▒██████
-       ██▒▒▒▒█▓▓▓▓▓▓▓███████
-        ████▒█▓▓▓▓▓▓▓█
-           ███▓▓▓█▓▓▓█
-             █▓▓██▓▓▓█
-             █▓███▓▓▓█
-            ██▓██▓▓▓▓█
-            █▓▓▓▓▓▓▓▓██
-            █▓▓▓▓▓▓▓▓▓█
-            █▓▓▓▓▓▓▓▓▓██
-            █▓▓▓▓▓▓▓▓▓▓██
-            █▓▓▓▓▓▓▓▓▓▓▓██
-           ██▓▓▓▓▓▓▓▓▓▓▓▓██
-          ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
-            ██████████████
-    `, painter.PaletteForest)
+	var name string
 
-	painter.Draw(`
-         ▓   ▓ ▓
-         ▓   ███
-          █  ▀█▀
-          █▀▓█▓█
-            ▓▓▓ █
-            █▓█  █
-            █ █
-           ▄█ █▄
-  `, painter.PaletteSteel)
-	fmt.Println("")
+	_, err := fmt.Scanln(&name)
+	if err != nil {
+		fmt.Println("Error scanning name: ", err)
+	}
 
-	fmt.Println("Golden 1:")
-	painter.PaletteGolden1.Info()
+	nameReaction := utility.RandomResponse([]string{
+		"an unusual name for these parts...",
+		"as fine a name as any!",
+		"a dandy name, if I do say so myself.",
+		"quite the name you've got there!",
+		"strange...that's my name too! Just kidding.",
+	})
 
-	fmt.Println("Golden 2:")
-	painter.PaletteGolden2.Info()
-
-	fmt.Println("Forest:")
-	painter.PaletteForest.Info()
-
-	fmt.Println("Sunset:")
-	painter.PaletteSunset.Info()
-
-	fmt.Println("Ocean:")
-	painter.PaletteOcean.Info()
-
-	fmt.Println("Greens:")
-	painter.PaletteGreens.Info()
-
-	fmt.Println("Steel:")
-	painter.PaletteSteel.Info()
+	ui.CreateDialogueBox(
+		ui.StyleCurved,
+		`
+      The man nods and replies: <d>
+      `+name+`? That's `+nameReaction+`
+      So what brings you 'round here?
+       <d> 1) Just passing through. <l> 2) Looking for adventure. <l> 3) I'm lost. <l> 4) I'm on a quest.
+    `,
+		palette.GetPrimary(),
+	).Print()
 }

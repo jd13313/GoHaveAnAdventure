@@ -1,5 +1,12 @@
 package painter
 
+var PaletteWhites = CreatePalette(
+	CreateColor(255, 255, 255),
+	CreateColor(252, 251, 161),
+	CreateColor(249, 249, 249),
+	CreateColor(255, 251, 0),
+)
+
 var PaletteGreens = CreatePalette(
 	CreateColor(255, 125, 3),
 	CreateColor(32, 125, 3),
