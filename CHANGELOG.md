@@ -23,3 +23,6 @@
 
 #### 4/13/24 - Added more color palettes, reorganize files
 ![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/faf56b5d-0690-44e3-b87d-5fe0f8047ada)
+
+#### 4/17/24 - Added a basic dialogue exchange
+![image](https://github.com/jd13313/GoHaveAnAdventure/assets/31113043/0c2ef530-ce26-4dda-9593-0da526fdfe9d)
